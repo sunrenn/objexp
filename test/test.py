@@ -5,7 +5,7 @@ import os
 # setting path
 def setparentpathbeforeimport():
     testfile_path = os.path.dirname(__file__)
-    objexp_path = os.path.join(testfile_path,"../")
+    objexp_path = os.path.join(testfile_path,"../src/")
     path.append(objexp_path)
 
 def checkdir(dirpath):

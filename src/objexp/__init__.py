@@ -1,6 +1,11 @@
 import re
 import json
 
+# vars() is alternative to dirs()
+if False:
+    vvv = vars().copy()
+    for kk,vv in vvv.items():
+        print(kk,type())
 
 def typename_analyzer(type_str):
     typical_type = [
@@ -92,3 +97,6 @@ def ox(someobj="test", savefile = None, ifprint = True):
             ff.write(json.dumps(resjson))
     
     return result_content_text
+
+if __name__=="__main__":
+    print("__main__ test!")
