@@ -28,7 +28,7 @@ resjson = {
 }
 
 
-def ox(someobj="test", savefile = None, ifprint = False):
+def ox(someobj="test", savefile = None, ifprint = True):
     """
     savefile: "md", "json", None
     ifprint: True, False

@@ -1,3 +1,15 @@
 Sub Plan:
-    - python type
-    - python module publishment
+
+    - read:
+        https://realpython.com/pypi-publish-python-package/,
+        https://builtin.com/data-science/how-to-publish-python-code-pypi
+        https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/
+
+    - 仍没有找到更好的替代方案的需求，inspect的getmembers()方法（再配合一下pprint.pprint()）看似能完成这项任务，实则不是给人看的: https://favtutor.com/blogs/print-object-attributes-python Using __dir__() method / Using vars() function / Using inspect module
+
+
+
+
+
+
+

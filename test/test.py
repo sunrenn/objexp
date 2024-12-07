@@ -24,9 +24,7 @@ def checkdir(dirpath):
 # https://note.nkmk.me/en/python-script-file-path/
 # checkdir(path[-1])
 
-Fals = 1
-
-if Fals == 1:
+if False or 1:
     
     setparentpathbeforeimport()
     from objexp import ox
@@ -35,8 +33,7 @@ if Fals == 1:
         pass
 
     def tst():
-        ox(os,None,False)
-        pass
+        ox(os)
 
     tst()
         

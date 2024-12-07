@@ -2,7 +2,7 @@
 objexp
 ====
 
-object explorer.
+[object,class,module]'s [members, attributes] explorer.
 
 usage
 ======
@@ -12,8 +12,8 @@ usage
     ox(someobj, savefile = None, ifprint = True)
 
 
-`savefile (str)`:   
+`savefile:str`:   
 Save the results to a file with the file, whose name is the value passed in to `savefile`, and the default value of `ifprint` is `None` indicates not outputting to any file.
 
-`ifprint (bool)`:   
+`ifprint:bool`:   
 Whether to output to the screen.
