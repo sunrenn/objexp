@@ -1,12 +1,6 @@
 import re
 import json
 
-# vars() is alternative to dirs()
-if False:
-    vvv = vars().copy()
-    for kk,vv in vvv.items():
-        print(kk,type())
-
 def typename_analyzer(type_str):
     typical_type = [
         "function",
@@ -98,5 +92,12 @@ def ox(someobj="test", savefile = None, ifprint = True):
     
     return result_content_text
 
+
+# vars() is alternative to dirs()
+if False:
+    vvv = vars().copy()
+    for kk,vv in vvv.items():
+        print(kk,type())
+        
 if __name__=="__main__":
     print("__main__ test!")
