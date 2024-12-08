@@ -52,7 +52,7 @@ from objexp import ox
 
 def main() -> None:
     """Read the Real Python article feed."""
-    ox()
+    ox(print,"both")
 
 if __name__ == "__main__":
     main()

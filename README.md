@@ -13,7 +13,7 @@ You can install objexp from [PyPI](https://pypi.org/project/objexp/):
 pip install objexp
 ```
 
-The reader is supported on Python 3.7 and above. 
+Objexp is supported on Python 3.7 and above. 
 
 ## How to use
 

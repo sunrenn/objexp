@@ -22,11 +22,11 @@ twine upload dist/*
 ```
 _________________________
 
-OBJ `print` TYPE: 
+TYPE: 
 builtin_function_or_method
 _________________________
 
-OBJ `print` MEMBERS:
+MEMBERS:
 
     <class 'NoneType'>
     __text_signature__,

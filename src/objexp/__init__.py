@@ -1,5 +1,12 @@
-import re
+import os
 import json
+import shutil
+
+def get_terminal_size_shutil():
+    return shutil.get_terminal_size((80, 20))  # Default width and height
+
+terminal_size = get_terminal_size_shutil()
+
 
 attrtype = {
 
@@ -60,12 +67,14 @@ def ox(someobj="test", savefile = None, ifprint = True):
     return: str results.
 
     """
-    
+    winww = terminal_size.columns-2
+    print(f'Width: {terminal_size.columns}, Height: {terminal_size.lines}')
     result_content_text = "\n"
-    result_content_text += "_________________________\n"
-    result_content_text += "\n"+str(type(someobj))+"\n"
-    result_content_text += "\n"+str(someobj)+"\n"
-    result_content_text += "_________________________\n"
+    result_content_text += "_"*winww+"\n"
+    result_content_text += "\n\033[1;44m OBJ'S TYPE: \033[0m\n\n"
+    result_content_text += " "*4+str(type(someobj))+"\n"
+    result_content_text += "_"*winww+"\n"
+    result_content_text += "\n\033[1;44m OBJ'S MEMBERS: \033[0m\n"
 
     resjson["objname"]=str(someobj)
 
@@ -102,13 +111,13 @@ def ox(someobj="test", savefile = None, ifprint = True):
         
         content_title_typename = iii[0]
         result_content_text += "\n"+content_title_typename+"\n"
-        print(content_title_typename) if ifprint else None
+        print("\n"+" "*4+"\033[1;40;34m "+content_title_typename[8:-2].upper()+" \033[0m\033[40;34mmembers: \033[0m") if ifprint else None
         
         content_objs_list = ""
         for jjj in iii[1]:
             content_objs_list += jjj + ", "
             
-        print(content_objs_list + "\n") if ifprint else None
+        print(" "*4+content_objs_list + "\n") if ifprint else None
         result_content_text += content_objs_list + "\n"
 
     if savefile == "md" or savefile == "both":
