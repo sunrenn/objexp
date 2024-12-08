@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: objexp
-Version: 1.0.2
+Version: 1.0.3
 Summary: List the members in a Object[also Class or Module].
 Author-email: Luke Lin <luke.l.lin@hotmail.com>
 Project-URL: Homepage, https://github.com/sunrenn/objexp

@@ -69,6 +69,11 @@ MEMBERS:
 
 
 ### Install Package Locally
+
+```powershell
+pip install build twine
+```
+
 在本地安装软件包
 
 可编辑安装。这是一种使用 pip 在本地安装包的方法，可让您在安装代码后编辑代码。
