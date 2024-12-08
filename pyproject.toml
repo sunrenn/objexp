@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "objexp"
-version = "1.0.1"
+version = "1.0.2"
 description = "List the members in a Object[also Class or Module]."
 readme = "README.md"
 authors = [{ name = "Luke Lin", email = "luke.l.lin@hotmail.com" }]

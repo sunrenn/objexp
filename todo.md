@@ -4,6 +4,7 @@
 
 - Redesign Result Interface
 - Optimize comments
+- [learn pdb](https://stackoverflow.com/questions/11552320/correct-way-to-pause-a-python-program)
 
 ## Update upload
 
