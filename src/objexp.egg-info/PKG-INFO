@@ -20,6 +20,8 @@ License-File: LICENSE.txt
 
 # objexp
 
+a util for python beginner.
+
 objexp is a util to check what members in a object or Class or module imported.
 
 
@@ -37,19 +39,21 @@ The reader is supported on Python 3.7 and above.
 
 There is only 1 function: ox(), with 2 parameters, `savefile`, `ifprint`
 
-if you want to save the result to a txt file, give the string of file path to save to parameter `savefile`, which defult value is `None`.
+savefile: "md", "json" or "both", the result str will be saved into "./objexp.md(.json)", defult value is `None`.
 
-if you dont want to output result on screen, you could give a `false` value to `ifprint`, which defult value is `true`.
+ifprint:　if you dont want to output result on screen, you could give a `false` value to `ifprint`, which defult value is `true`.
 
 
 ```python
+
 from objexp import ox
-ox(print)
+
+ox(print,savefile:str,ifprint:bool)
 
 ```
 It will output the members of function `print` on the screen as below:
 
-```
+```bash
 _________________________
 
 <class 'builtin_function_or_method'>

@@ -6,6 +6,8 @@
 study/
 study/*
 
+src/objexp.egg-info/
+src/objexp.egg-info/*
 
 # Node artifact files
 node_modules/

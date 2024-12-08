@@ -25,3 +25,6 @@ requires-python = ">=3.9"
 
 [project.urls]
 Homepage = "https://github.com/sunrenn/objexp"
+
+[project.scripts]
+tstox = "objexp.__main__:main"

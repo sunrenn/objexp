@@ -1,8 +1,0 @@
-[metadata]
-name = objexp
-version = 0.1
-
-[options]
-install_requires =
-    colorama
-    importlib-metadata; python_version>"3.10"
