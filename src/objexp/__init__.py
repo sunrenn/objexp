@@ -1,14 +1,15 @@
 import os
 import json
 import shutil
+from typing import Literal, Optional, Union
+
 
 def get_terminal_size_shutil():
     return shutil.get_terminal_size((80, 20))  # Default width and height
 
 terminal_size = get_terminal_size_shutil()
 
-
-attrtype = {
+known_attr_types = {
 
     'func' : [
         "function",
@@ -33,12 +34,11 @@ attrtype = {
     'other' : [
         "type",
         "method-wrapper",
+        "nonetype"
     ]
 }
 
-attrtype_all = [vv for vv in attrtype.values()]
     
-
 resjson = {
     "objname":"",
     "objitms":[]
@@ -56,7 +56,16 @@ def oxvars(oo):
         print(ooo)
 
 
-def ox(someobj="test", savefile = None, ifprint = True):
+# 方式2：限制为特定可选值（需Python 3.8+）
+def set_direction(direction: Literal["left", "right", "up", "down"] = "left") -> None:
+    print(f"Moving {direction}")
+
+# 方式3：可选参数（允许None）
+def connect(timeout: Optional[int] = None) -> None:
+    timeout = timeout or 30  # 默认值30
+
+
+def ox(someobj: obj="test", savefile: str | None = None, onlyknown: bool = False, bygroup: bool = True, ifprint = True):
     """
     function ox list members of someobj
 
@@ -100,7 +109,7 @@ def ox(someobj="test", savefile = None, ifprint = True):
         if (previous_type_str != current_type_str):
 
             dirjson.append([current_type_str,[]])
-            
+            attrtype_all
             previous_type_str = current_type_str
 
         dirjson[-1][1].append(objitem)
@@ -131,11 +140,47 @@ def ox(someobj="test", savefile = None, ifprint = True):
     return result_content_text
 
 
-# vars() is alternative to dirs()
-if False:
-    vvv = vars().copy()
-    for kk,vv in vvv.items():
+# vars() is alternative to dirs(), or locals()
+
+
+def what_is_vars():
+    locals = vars().copy()
+    for kk,vv in locals.items():
         print(kk,type())
+
+    helpinfo = """
+    vars() 是 Python 内置的一个函数，用于返回对象的 dict 属性，这是一个包含对象属性和它们值的字典。对于大多数 Python 对象，vars() 返回的是对象的命名空间。如果对象没有 dict 属性，比如内置类型或没有定义 dict 的自定义对象，vars() 将引发 TypeError。
+
+    例如：
+    ```python
+    class MyClass:
+        def __init__(self):
+            self.a = 1
+            self.b = 2
+
+    obj = MyClass()
+    print(vars(obj))  # 输出: {'a': 1, 'b': 2}
+    ```
+    在没有参数的情况下调用 vars()，它等价于 locals()，返回当前作用域中的局部符号表，也是一个字典。
+
+    例如：
+    ```python
+    def my_function():
+        x = 10
+        y = 20
+        print(vars())  # 输出: {'x': 10, 'y': 20}
+
+    my_function()
+
+    ```
+    总结一下，vars() 主要用于获取对象的属性字典或当前作用域的局部符号表。
+
+
+    """
         
 if __name__=="__main__":
-    ox()
+    import dashscope
+
+    ox(dashscope)
+
+    print(attrtype_all)

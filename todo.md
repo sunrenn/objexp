@@ -3,6 +3,8 @@
 ## Plan
 
 - Redesign Result Interface
+    - 可以只显示外部成员（不带下划线的。），只显示常规类型成员（用 known_attr_types 过滤）
+    - 可以分组显示，也可以不分组，在不分组的情况下，每个成员单独显示其类型，并且可以按类型排序或按名称排序(或通过ai分析，按复杂程度、重要程度排序)
 - Optimize comments
 - [learn pdb](https://stackoverflow.com/questions/11552320/correct-way-to-pause-a-python-program)
 
