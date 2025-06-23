@@ -121,11 +121,11 @@ def ox(someobj="test", savefile = None, ifprint = True):
         result_content_text += content_objs_list + "\n"
 
     if savefile == "md" or savefile == "both":
-        with open("objexp"+".md",'w', encoding="UTF-8") as ff:
+        with open("objxp"+".md",'w', encoding="UTF-8") as ff:
             ff.write(result_content_text)
 
     if savefile == "json" or savefile == "both":
-        with open("objexp"+".json",'w', encoding="UTF-8") as ff:
+        with open("objxp"+".json",'w', encoding="UTF-8") as ff:
             ff.write(json.dumps(resjson))
     
     return result_content_text

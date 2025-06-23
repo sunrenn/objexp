@@ -1,36 +1,42 @@
-# objexp
+# objxp
 
 a util for python beginner.
 
-objexp is a util to check what members in a object or Class or module imported.
+objxp is a util to check what members in a object or Class or module imported.
 
 
 ## Installation
 
-You can install objexp from [PyPI](https://pypi.org/project/objexp/):
+You can install objxp from [PyPI](https://pypi.org/project/objxp/):
 
 ```bash
-pip install objexp
+pip install objxp
 ```
 
-Objexp is supported on Python 3.7 and above. 
+objxp is supported on Python 3.7 and above. 
 
 ## How to use
 
 There is only 1 function: ox(), with 2 parameters, `savefile`, `ifprint`
 
-savefile: "md", "json" or "both", the result str will be saved into "./objexp.md(.json)", defult value is `None`.
+savefile: "md", "json" or "both", the result str will be saved into "./objxp.md(.json)", defult value is `None`.
 
 ifprint:　if you dont want to output result on screen, you could give a `false` value to `ifprint`, which defult value is `true`.
 
 
+## Usage Example
+
+### example.py
+
 ```python
 
-from objexp import ox
+from objxp import ox
 
 ox(print,savefile:str,ifprint:bool)
 
 ```
+### output
+
 It will output the members of function `print` on the screen as below:
 
 ```bash

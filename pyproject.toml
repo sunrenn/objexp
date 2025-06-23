@@ -3,11 +3,11 @@ requires = ["setuptools>=61.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "objexp"
-version = "1.0.3"
+name = "objxp"
+version = "1"
 description = "List the members in a Object[also Class or Module]."
 readme = "README.md"
-authors = [{ name = "Luke Lin", email = "luke.l.lin@hotmail.com" }]
+authors = [{ name = "lukelin", email = "hongfoo@foxmail.com" }]
 license = { file = "LICENSE" }
 classifiers = [
     "License :: OSI Approved :: MIT License",
@@ -24,7 +24,7 @@ keywords = ["dir", "vars", "debug"]
 requires-python = ">=3.9"
 
 [project.urls]
-Homepage = "https://github.com/sunrenn/objexp"
+Homepage = "https://github.com/sunrenn/objxp"
 
 [project.scripts]
-tstox = "objexp.__main__:main"
+tstox = "objxp.__main__:main"

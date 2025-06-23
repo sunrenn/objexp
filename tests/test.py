@@ -5,8 +5,8 @@ import os
 # setting path
 def setparentpathbeforeimport():
     testfile_path = os.path.dirname(__file__)
-    objexp_path = os.path.join(testfile_path,"../src/")
-    path.append(objexp_path)
+    objxp_path = os.path.join(testfile_path,"../src/")
+    path.append(objxp_path)
 
 def checkdir(dirpath):
     for (root,dirs,files) in os.walk(dirpath,topdown=True):
@@ -27,7 +27,7 @@ def checkdir(dirpath):
 if False or 1:
     
     setparentpathbeforeimport()
-    from objexp import ox
+    from objxp import ox
 
     class TestEmptyClass:
         pass

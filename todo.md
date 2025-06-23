@@ -2,6 +2,10 @@
 
 ## Plan
 
+- 如何修改大模型的短期记忆，关于短期记忆，参考：https://blog.csdn.net/taotaocwl/article/details/145660580
+
+- `__main__.py` 是干什么的?
+
 - Redesign Result Interface
     - 可以只显示外部成员（不带下划线的。），只显示常规类型成员（用 known_attr_types 过滤）
     - 可以分组显示，也可以不分组，在不分组的情况下，每个成员单独显示其类型，并且可以按类型排序或按名称排序(或通过ai分析，按复杂程度、重要程度排序)

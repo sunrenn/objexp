@@ -9,7 +9,7 @@ def get_terminal_size_shutil():
 
 terminal_size = get_terminal_size_shutil()
 
-known_attr_types = {
+initial_classes = {
 
     'func' : [
         "function",
@@ -44,72 +44,66 @@ resjson = {
     "objitms":[]
 }
 
-def oxdir(oo):
-    print(len(dir(oo)))
-    for ooo in dir(oo):
-        print(ooo)
 
-def oxvars(oo):
-    # TypeError: vars() argument must have __dict__ attribute
-    print(len(vars(oo)))
-    for ooo in vars(oo):
-        print(ooo)
+def safe_type(obj, attr):
+    try:
+        return str(type(getattr(obj, attr)))
+    except Exception:
+        return "unavailable"
 
-
-# 方式2：限制为特定可选值（需Python 3.8+）
-def set_direction(direction: Literal["left", "right", "up", "down"] = "left") -> None:
-    print(f"Moving {direction}")
-
-# 方式3：可选参数（允许None）
-def connect(timeout: Optional[int] = None) -> None:
-    timeout = timeout or 30  # 默认值30
-
-
-def ox(someobj: obj="test", savefile: str | None = None, onlyknown: bool = False, bygroup: bool = True, ifprint = True):
+def ox(
+        theobj: object="test", 
+        ifprint = True, 
+        savefile: str | None = 'md', 
+        show_inner_members: str = 'none', # none show both, True show only inner members, False show only outer members
+        show_onlyknown: bool = False, 
+        bygroup: bool = True
+        ):
     """
-    function ox list members of someobj
+    function ox list members of theobj
 
-    param someobj: what to explor
-    param savefile: "md", "json", None, if save the results to a file (md or json, or both of 2).
+    param theobj: what to explor
+    param savefile: "md", "json", "both", None, if save the results to a file (md or json, or both of 2).
+    param show_inner_members: '_', '__', 'both'(_,__), 'none'(only outer members), if only show inner members of the object.
+    param show_onlyknown: True ( 不包括非典型的自定义成员 ), False ( 包括非典成员 ), if only show known members of the object.
     param ifprint: True, False, if print the results on console.
 
     return: str results.
 
     """
     winww = terminal_size.columns-2
-    print(f'Width: {terminal_size.columns}, Height: {terminal_size.lines}')
+    # print(f'Width: {terminal_size.columns}, Height: {terminal_size.lines}')
     result_content_text = "\n"
     result_content_text += "_"*winww+"\n"
     result_content_text += "\n\033[1;44m OBJ'S TYPE: \033[0m\n\n"
-    result_content_text += " "*4+str(type(someobj))+"\n"
+    result_content_text += " "*4+str(type(theobj))+"\n"
     result_content_text += "_"*winww+"\n"
     result_content_text += "\n\033[1;44m OBJ'S MEMBERS: \033[0m\n"
 
-    resjson["objname"]=str(someobj)
+    resjson["objname"]=str(theobj)
 
     print(result_content_text) if ifprint else None
 
-
-    dirlist = dir(someobj)
+    dirlist = dir(theobj)
 
     dirResult_sorted = sorted(
         dirlist, 
-        key=lambda x: str(type(getattr(someobj,x)))
+        key=lambda x: safe_type(theobj,x)
         )
-
 
     previous_type_str = ""
     dirjson = []
     atypeitm = []
     
-    
     for objitem in dirResult_sorted:
-        current_type_str = str(type(getattr(someobj,objitem)))
+        current_type_str = safe_type(theobj,objitem)
 
         if (previous_type_str != current_type_str):
 
             dirjson.append([current_type_str,[]])
-            attrtype_all
+            
+            attrtype_all = initial_classes.get(current_type_str, ["other"])
+            
             previous_type_str = current_type_str
 
         dirjson[-1][1].append(objitem)
@@ -130,11 +124,11 @@ def ox(someobj: obj="test", savefile: str | None = None, onlyknown: bool = False
         result_content_text += content_objs_list + "\n"
 
     if savefile == "md" or savefile == "both":
-        with open("objexp"+".md",'w', encoding="UTF-8") as ff:
+        with open("objxp"+".md",'w', encoding="UTF-8") as ff:
             ff.write(result_content_text)
 
     if savefile == "json" or savefile == "both":
-        with open("objexp"+".json",'w', encoding="UTF-8") as ff:
+        with open("objxp"+".json",'w', encoding="UTF-8") as ff:
             ff.write(json.dumps(resjson))
     
     return result_content_text
@@ -179,8 +173,4 @@ def what_is_vars():
     """
         
 if __name__=="__main__":
-    import dashscope
-
-    ox(dashscope)
-
-    print(attrtype_all)
+    ox(100)
